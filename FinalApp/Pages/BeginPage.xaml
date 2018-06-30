@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FinalApp"
+             x:Class="FinalApp.BeginPage">
+    <ContentPage.BindingContext>
+        <local:PasswordView/>
+    </ContentPage.BindingContext>
+            <StackLayout>
+        <Entry IsPassword="True" 
+               MaxLength="20" 
+               WidthRequest="200" 
+               VerticalOptions="Center"
+               HorizontalOptions="CenterAndExpand">
+            <Entry.Behaviors>
+                <local:PasswordBehavior Command="{Binding EnableLogin}"/>
+            </Entry.Behaviors>
+        </Entry>
+        <Button Text="LOGIN"                 
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                IsEnabled="{Binding IsEnabled}"
+                Clicked="ChangePage"/>
+
+            </StackLayout>
+</ContentPage>

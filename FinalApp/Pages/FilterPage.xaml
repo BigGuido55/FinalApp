@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FinalApp"
+             x:Class="FinalApp.FilterPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Label Text="Kapacitet:"/>
+                <Entry WidthRequest="50"
+                       MaxLength="3">
+                    <Entry.Behaviors>
+                        <local:CapacityBehavior Command="EnableSelectionButton"/>
+                    </Entry.Behaviors>
+                </Entry>
+            </StackLayout>
+            <Label Text="Napomena: Kako biste mogli nastaviti, upišite za kapacitet broj između 0 i 100"/>
+            <Button Text="Traži"
+                    IsEnabled="{x:Binding SelectionButton}"
+                    Clicked="ToList"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
